@@ -61,6 +61,6 @@ VOLUME ["${APP_HOME}/media", "${APP_HOME}/logs", "${APP_HOME}/conf"]
 # App Server Port
 EXPOSE 9009
 
-ENTRYPOINT ${APP_HOME}/appserver/bin/pm15
+ENTRYPOINT ["${APP_HOME}/appserver/bin/pm15"]
 
-CMD ["-java-home", "${JAVA_HOME}", "-Dhttp.port=9009", "-Dhttp.address=127.0.0.1", "-Dplay.evolutions.db.default.autoApply=true"]
+CMD ["-java-home", "${JAVA_HOME}", "-Dhttp.port=9009", "-Dplay.evolutions.db.default.autoApply=true"]
