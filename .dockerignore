@@ -1,0 +1,4 @@
+# ignore files for docker creation
+README.md
+.gitignore
+LICENSE
