@@ -48,10 +48,10 @@ WORKDIR ${APP_HOME}
 RUN mkdir ${APP_HOME}/media \
     && mkdir ${APP_HOME}/logs \
     && mkdir ${APP_HOME}/conf \
-    && curl -L -H "Accept: application/octet-stream" https://api.github.com/repos/metaxmx/pm15/releases/assets/5775591 -o pm15-1.1.zip \
-    && unzip pm15-1.1.zip \
-    && rm pm15-1.1.zip \
-    && mv pm15-1.1 appserver \
+    && curl -L -H "Accept: application/octet-stream" https://api.github.com/repos/metaxmx/pm15/releases/assets/7659682 -o pm15-1.1.1.zip \
+    && unzip pm15-1.1.1.zip \
+    && rm pm15-1.1.1.zip \
+    && mv pm15-1.1.1 appserver \
     && rm -r ${APP_HOME}/appserver/share \
     && ln -s ${APP_HOME}/conf/instance.conf ${APP_HOME}/appserver/conf/instance.conf \
     && ln -s ${APP_HOME}/logs ${APP_HOME}/appserver/logs
