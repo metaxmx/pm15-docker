@@ -9,6 +9,8 @@ ENV LANG en_US.UTF-8
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 ENV JAVA_EXE ${JAVA_HOME}/bin/java
 
+ENV PM15_VERSION 1.1.2
+
 # Install tools and libs
 RUN apt-get update && apt-get install -y apt-utils && apt-get install -y \
     curl \
@@ -48,10 +50,10 @@ WORKDIR ${APP_HOME}
 RUN mkdir ${APP_HOME}/media \
     && mkdir ${APP_HOME}/logs \
     && mkdir ${APP_HOME}/conf \
-    && curl -L -H "Accept: application/octet-stream" https://api.github.com/repos/metaxmx/pm15/releases/assets/7659682 -o pm15-1.1.1.zip \
-    && unzip pm15-1.1.1.zip \
-    && rm pm15-1.1.1.zip \
-    && mv pm15-1.1.1 appserver \
+    && curl -L -H "Accept: application/octet-stream" https://github.com/metaxmx/pm15/releases/download/v${PM15_VERSION}/pm15-${PM15_VERSION}.zip -o pm15-${PM15_VERSION}.zip \
+    && unzip pm15-${PM15_VERSION}.zip \
+    && rm pm15-${PM15_VERSION}.zip \
+    && mv pm15-${PM15_VERSION} appserver \
     && rm -r ${APP_HOME}/appserver/share \
     && ln -s ${APP_HOME}/conf/instance.conf ${APP_HOME}/appserver/conf/instance.conf \
     && ln -s ${APP_HOME}/logs ${APP_HOME}/appserver/logs
